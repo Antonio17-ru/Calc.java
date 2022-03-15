@@ -5,33 +5,33 @@ public class Roman {
     public static String ArabRom(int arabNum) {
         StringBuilder result = new StringBuilder();
         for (int i = intVal.length - 1; i >= 0; i--) {
-            while (arabNum >= intVal[i]) {
+            if (arabNum >= intVal[i]) {
                 arabNum -= intVal[i];
                 result.append(romanVal[i]);
             }
         }
         return result.toString();
     }
-    public static int RomArab(String s) {
+    public static int RomArab(String a) {
         int result = 0;
         int preValue = 0;
-        String symbol = Character.toString(s.charAt(s.length() - 1));
+        String symbol = Character.toString(a.charAt(a.length() - 1));
         for (int i = 0; i < romanVal.length - 1; i++) {
             if (symbol.equals(romanVal[i])) {
                 result += intVal[i];
                 preValue = intVal[i];
             }
         }
-        for (int i = s.length() - 2; i >= 0; i--) {
-            symbol = Character.toString(s.charAt(i));
+        for (int i = a.length() - 2; i >= 0; i--) {
+            symbol = Character.toString(a.charAt(i));
             for (int k = 0; k < romanVal.length - 1; k++) {
                 if (symbol.equals(romanVal[k])) {
                     if (intVal[k] < preValue) {
                         result -= intVal[k];
                     } else {
                         result += intVal[k];
+                        preValue = intVal[k];
                     }
-                    preValue = intVal[k];
                 }
             }
         }
