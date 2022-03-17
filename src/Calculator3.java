@@ -16,7 +16,7 @@ public class Calculator3 {
         this.y = y;
     }
 
-    public void run() throws ResException, CharException {
+    public void run() throws ResException, CharException, RomanException {
         if (x > 10 || y > 10 || x < 1 || y < 1) {
             throw new ResException();
         }

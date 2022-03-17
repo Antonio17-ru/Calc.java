@@ -15,6 +15,7 @@ public class Calc {
 
 
         } catch (ResException l) { l.printStackTrace(); }
+        catch (RomanException j) { j.printStackTrace(); }
         catch (CharException d) { d.printStackTrace(); }
         catch (NopeException e) { e.printStackTrace(); }
     }

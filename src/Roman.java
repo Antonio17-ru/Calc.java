@@ -1,8 +1,11 @@
 public class Roman {
 
-    private static final int[] intVal = new int[]{1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000};
-    private static final String[] romanVal = new String[]{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
-    public static String ArabRom(int arabNum) {
+    private static final int[] intVal = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 50, 90, 100, 400, 500, 900, 1000};
+    private static final String[] romanVal = new String[]{"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XX", "XXX", "XL", "L", "XC", "C", "CD", "D", "CM", "M"};
+    public static String ArabRom(int arabNum) throws RomanException{
+        if (arabNum < 1 || arabNum > 3999) {
+            throw new RomanException ();
+        }
         StringBuilder result = new StringBuilder();
         for (int i = intVal.length - 1; i >= 0; i--) {
             if (arabNum >= intVal[i]) {
